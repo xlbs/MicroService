@@ -1,0 +1,4 @@
+#spring配置
+spring:
+  application:
+    name: blog-service #服务名

@@ -1,0 +1,33 @@
+spring:
+  profiles:
+    active: pro
+  redis:
+    host: 172.17.73.241
+    port: 6379
+    password:
+    pool:
+      max-active: 4
+      max-wait: -1
+      max-idle: 4
+      min-idle: 0
+    timeout: 2000
+    database: 0
+
+server:
+  port: 8081
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 60
+  client:
+    service-url:
+      defaultZone: http://172.17.73.241:8888/eureka/
+
+mysql:
+  datasource:
+    url: jdbc:mysql://47.106.161.65:3306/xlbs_dev?useAffectedRows=true&useSSL=false
+    username: root
+    password: chero@123
